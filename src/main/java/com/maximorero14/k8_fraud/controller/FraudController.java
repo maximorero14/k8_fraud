@@ -18,7 +18,7 @@ public class FraudController {
 
     @PostMapping("/check")
     public FraudCheckResponse checkFraud(@RequestBody PaymentRequest paymentRequest) {
-        boolean result = random.nextInt(10) < 9;
+        boolean result = !(random.nextInt(10) < 9);
         FraudCheckResponse fraudCheckResponse = new FraudCheckResponse();
         fraudCheckResponse.setFraud(result);
         log.info("response {} {}", paymentRequest, fraudCheckResponse);
